@@ -1,7 +1,7 @@
-%Part a - DTFT Function:
+%DTFT Function:
 function output = dtft(input)
     out_arr = zeros(1,2001);
-    % Create an array to hold w values for the x access that are normalized
+    % Create an array to hold w values for the x axis that are normalized
     % so the max and min are plus or minus pi
     w_arr = linspace(-1000, 1000, 2001);
     w_arr = w_arr * (pi()/1000);
