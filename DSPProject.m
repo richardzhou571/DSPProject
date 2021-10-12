@@ -1,3 +1,8 @@
+% Testing Sound library in MATLAB
+load gong.mat;
+sound([1, 2, 3, -4, -3, -2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]/5);
+
+% Testing image library in MATLAB
 corn_gray = imread('corn.tif', 3);
 meanIntensity = mean(corn_gray(:));
 corn_binary = corn_gray > meanIntensity;
