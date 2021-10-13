@@ -15,21 +15,18 @@ strawberry = imread('strawberry.jpg');
 strawberry_grayscale = strawberry(:, :, 1)/3 + strawberry(:, :, 2)/3 + strawberry(:, :, 3)/3;
 strawberry_binary = strawberry_grayscale > mean(strawberry_grayscale(:));
 
-% Image a
 a = zeros(20);
 a(5:15, 5:15) = 1;
 
-% Image b
-b = ones(20);
+b = zeros(20);
 
 dtft_a = abs(dtft(a));
 for i=1:length(dtft_a(:,1))
     sound(dtft_a(i, :));
 end
 
-dtft_b = abs(dtft(b));
-for i=1:length(dtft_b(:,1))
-    sound(dtft_b(i, :));
+dtft_b = abs(dtft(a));
+for i=1:length(dtft_a(:,1))
+    sound(dtft_a(i, :));
 end
 imshow(a)
-imshow(b)
