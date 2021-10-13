@@ -6,7 +6,8 @@ load chirp.mat;
 fprintf("Loading RGB image and converting to grayscale row vector...");
 
 % read in RGB image
-color_image = imread('strawberry.jpg');
+color_image = imread('diamond_helmet.png');
+%color_image = imread('strawberry.jpg');
 imshow(color_image)
 
 % convert RGB image to grayscale using rgb2gray()
@@ -63,5 +64,6 @@ disp(str_w);
 fprintf('\n');
 
 % save the file as a .wav
-filename = 'strawberry.wav';
+%filename = 'strawberry.wav';
+filename = 'diamond_helmet.wav';
 audiowrite(filename, chirp_convolution, Fs);
