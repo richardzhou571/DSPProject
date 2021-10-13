@@ -41,6 +41,13 @@ fprintf("\nCompleted DTFT.");
 fprintf("\n\nBeginning convolution of image with chirp signal...");
 chirp_convolution = conv(image_dtft, y);
 chirp_convolution = chirp_convolution';
+
+% Normalize the chirp so that it is between -1 and 1 (as required by the
+% audio functions in MATLAB) by dividing by the maximum absolute value
+% in chirp_convolution scaled slightly to insure that the values in the
+% vector are not equal to -1 or 1.
+chirp_convolution = chirp_convolution/(max(abs(chirp_convolution))*1.2);
+
 fprintf("\nCompleted convolution.");
 
 % play the audio
