@@ -29,7 +29,7 @@ assert(isequal(expected_dims,actual_dims), "Image vector conversion failed!");
 
 % convert image_vec from uint8 to doubles to work with gong.mat library to
 % play sounds
-image_vec = im2double(image_vec);
+image_vec = im2double(image_vec); % 1x131044 double
 
 fprintf("\nCompleted image loading and conversion.");
 
@@ -38,7 +38,7 @@ fprintf("\n\nCalculating discrete-time Fourier transform...\n");
 tic;
 w = linspace(-1000, 1000, 2001);
 w = w * (pi()/1000);
-image_dtft = dtft(image_vec, w);
+image_dtft = dtft(image_vec, w); % 1x2001 double
 image_dtft_mag = abs(image_dtft);
 image_dtft_phase = angle(image_dtft);
 toc;
