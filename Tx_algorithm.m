@@ -51,7 +51,8 @@ chirp_convolution = chirp_convolution';
 % audio functions in MATLAB) by dividing by the maximum absolute value
 % in chirp_convolution scaled slightly to ensure that the values in the
 % vector are not equal to -1 or 1.
-chirp_convolution = chirp_convolution/(max(abs(chirp_convolution))*1.2);
+max_abs_chirp = max(abs(chirp_convolution));
+chirp_convolution = chirp_convolution/(max_abs_chirp*1.2);
 
 fprintf("\nCompleted convolution.");
 
