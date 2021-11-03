@@ -22,3 +22,6 @@ image_dtft = image_dtft_mag .* exp(1j * image_dtft_phase);
 
 % IDTFT
 image_vec = ifft(image_dtft);
+
+grayscale_image = reshape(image_vec,[362, 362]);
+imshow(grayscale_image)
