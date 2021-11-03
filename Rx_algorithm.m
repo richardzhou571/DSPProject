@@ -33,7 +33,11 @@ image_vec = abs(image_vec);
 
 % reshaping waveform into matrix
 original_grayscale = reshape(image_vec, [original_width, original_height]);
-fprintf("\nReshaped waveform into matrix.\n\nHooray!\n");
+fprintf("\nReshaped waveform into matrix.");
 
 % display original image -- hooray!
 imshow(original_grayscale);
+
+% save the reconstructed image as a .png
+imwrite(original_grayscale, 'diamond_helmet_reconstructed.png');
+fprintf("\nSaved reconstructed image as a .png file.\n\nHooray!\n");
