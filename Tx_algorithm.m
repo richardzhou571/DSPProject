@@ -3,8 +3,9 @@ clear; clc; close all;
 load gong.mat;
 load chirp.mat;
 
+
+
 fprintf("Loading RGB image and converting to grayscale row vector...");
-bruh = imread('strawberry.jpg');
 
 % read in RGB image
 color_image = imread('diamond_helmet.png');
@@ -33,24 +34,27 @@ image_vec = im2double(image_vec); % 1x131044 double
 fprintf("\nCompleted image loading and conversion.");
 
 % use discrete-time Fourier transform, then convolve with the Chirp signal
-fprintf("\n\nCalculating discrete-time Fourier transform...\n");
+fprintf("\nCalculating discrete-time Fourier transform...\n");
 tic;
-image_dtft = fft(image_vec); % 1x2001 double
+image_dtft = fft(image_vec); % 1x131044 complex
 image_dtft_mag = abs(image_dtft);
 image_dtft_phase = angle(image_dtft);
 filename_mag = 'diamond_helmet_mag.wav';
 filename_phase = 'diamond_helmet_phase.wav';
 toc;
-fprintf("\nCompleted DTFT.");
+fprintf("Completed DTFT.");
 
 % normalize DTFTs
 max_dtft_mag = max(abs(image_dtft_mag));
 image_dtft_mag = image_dtft_mag/max(abs(image_dtft_mag));
 max_dtft_phase = max(abs(image_dtft_phase));
 image_dtft_phase = image_dtft_phase/max(abs(image_dtft_phase));
+fprintf("\nTransforms normalized.");
 
+% write the magnitude and phase of the image into .wav files
 audiowrite(filename_mag, image_dtft_mag, Fs);
 audiowrite(filename_phase, image_dtft_phase, Fs);
+fprintf("\nMagnitude and phase of image saved as .wav files.");
 
 fprintf('\n\n');
 disp(str_h);
