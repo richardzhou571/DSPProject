@@ -38,11 +38,12 @@ fprintf("\n\nCalculating discrete-time Fourier transform...\n");
 tic;
 w = linspace(-1000, 1000, 2001);
 w = w * (pi()/1000);
-image_dtft = dtft(image_vec, w); % 1x2001 double
+image_dtft = fft(image_vec);
+%image_dtft = dtft(image_vec, w); % 1x2001 double
 image_dtft_mag = abs(image_dtft);
 image_dtft_phase = angle(image_dtft);
 toc;
-fprintf("Completed DTF.");
+fprintf("Completed DTFT.");
 
 % convolve with chirp signal
 fprintf("\n\nBeginning convolution of image with chirp signal...");
