@@ -20,5 +20,12 @@ image_dtft_mag = image_dtft_mag' * 1.296028235294118e+04;
 image_dtft_phase = image_dtft_phase' * pi;
 image_dtft = image_dtft_mag .* exp(1j * image_dtft_phase);
 
+original_width = 362;
+original_height = 362;
+
 % IDTFT
 image_vec = ifft(image_dtft);
+image_vec = uint8(image_vec);
+
+original_grayscale = reshape(image_vec, original_height, original_width);
+imshow(original_grayscale);

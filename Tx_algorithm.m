@@ -4,11 +4,10 @@ load gong.mat;
 load chirp.mat;
 
 fprintf("Loading RGB image and converting to grayscale row vector...");
+bruh = imread('strawberry.jpg');
 
 % read in RGB image
 color_image = imread('diamond_helmet.png');
-%color_image = imread('strawberry.jpg');
-imshow(color_image)
 
 % convert RGB image to grayscale using rgb2gray()
 grayscale_image = rgb2gray(color_image);
@@ -42,7 +41,7 @@ image_dtft_phase = angle(image_dtft);
 filename_mag = 'diamond_helmet_mag.wav';
 filename_phase = 'diamond_helmet_phase.wav';
 toc;
-fprintf("Completed DTFT.");
+fprintf("\nCompleted DTFT.");
 
 % normalize DTFTs
 max_dtft_mag = max(abs(image_dtft_mag));
