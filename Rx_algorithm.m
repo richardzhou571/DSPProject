@@ -46,7 +46,8 @@ fprintf("\nReshaped waveform into matrix.");
 % display original image (noisy)
 figure(1);
 imshow(original_noisy);
-title('Original Noisy Image');
+title('Reconstructed Noisy Image');
+imwrite(original_noisy, strcat(filename, '_reconstructed_noisy.png'));
 
 % filter the noisy image with weiner filter
 filtered_image = wiener2(original_noisy, [5, 5]);
@@ -54,10 +55,10 @@ filtered_image = wiener2(original_noisy, [5, 5]);
 % display filtered image -- hooray!
 figure(2);
 imshow(filtered_image);
-title('Filtered Original Image');
+title('Filtered Reconstructed Image');
 
 % save the reconstructed image as a .png
-imwrite(filtered_image, strcat(filename, '_reconstructed.png'));
+imwrite(filtered_image, strcat(filename, '_reconstructed_filtered.png'));
 fprintf("\nSaved reconstructed image as a .png file.\n\nHooray!\n");
 
 % comparison with original
