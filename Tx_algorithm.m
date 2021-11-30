@@ -1,19 +1,19 @@
 clear; clc; close all;
 
 load gong.mat;
-load chirp.mat;
-
 
 
 fprintf("Loading RGB image and converting to grayscale row vector...");
 
 % read in RGB image
-color_image = imread('diamond_helmet.png');
+filename = 'rotunda';
+color_image = imread(strcat(filename, '.png'));
 
 % convert RGB image to grayscale using rgb2gray()
 grayscale_image = rgb2gray(color_image);
 figure
 imshow(grayscale_image)
+imwrite(grayscale_image, strcat(filename, '_grayscale.png'));
 img_height = size(grayscale_image, 1);
 img_width = size(grayscale_image, 2);
 str_h = sprintf('Image height: %d', img_height);
@@ -39,8 +39,8 @@ tic;
 image_dtft = fft(image_vec); % 1x131044 complex
 image_dtft_mag = abs(image_dtft);
 image_dtft_phase = angle(image_dtft);
-filename_mag = 'diamond_helmet_mag.wav';
-filename_phase = 'diamond_helmet_phase.wav';
+filename_mag = strcat(filename,'_mag.wav');
+filename_phase = strcat(filename,'_phase.wav');
 toc;
 fprintf("Completed DTFT.");
 
