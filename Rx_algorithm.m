@@ -16,6 +16,11 @@ fprintf("Unpacking waveforms...");
 [image_dtft_mag, Fs] = audioread('diamond_helmet_mag.wav');
 [image_dtft_phase, Fs] = audioread('diamond_helmet_phase.wav');
 
+% introduce some gaussian noise (similar to how it is done in the EEG Lab
+% example
+image_dtft_mag = image_dtft_mag + randn(size(image_dtft_mag));
+image_dtft_phase = image_dtft_phase + randn(size(image_dtft_phase));
+
 % un-normalize the code with the provided constants above
 % combine magnitude and phase into one matrix
 image_dtft_mag = image_dtft_mag' * normalization_constant_mag;
