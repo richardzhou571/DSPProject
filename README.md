@@ -10,3 +10,4 @@ The following topics from digital signal processing were used:
   <li>Wiener filter for image post-processing (`wiener2()` in MATLAB)</li>
 </ol>
 
+![](https://user-images.githubusercontent.com/55355406/167522978-20b07a41-3960-436e-bb2a-efc5b92070b7.jpg)
